@@ -67,22 +67,22 @@ const KanbanBoard = () => {
       }, {});
     }
 
-    // Sort tickets within each group
+ 
     Object.keys(grouped).forEach(key => {
       grouped[key].sort((a, b) => {
         if (orderBy === 'priority') {
-          return a.priority - b.priority; // Sort in ascending order of priority
+          return a.priority - b.priority;
         } else {
           return a.title.localeCompare(b.title);
         }
       });
     });
 
-    // Sort the groups themselves if grouped by priority
+
     if (groupBy === 'priority') {
       const orderedGroups = {};
       Object.keys(priorityMap)
-        .sort((a, b) => a - b) // Sort the priority groups in ascending order
+        .sort((a, b) => a - b) 
         .forEach(priorityKey => {
           const priorityName = priorityMap[priorityKey].name;
           if (grouped[priorityName]) {

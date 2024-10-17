@@ -9,18 +9,18 @@ const DisplayMenu = ({ settings, onSettingsChange }) => {
     onSettingsChange({ ...settings, [key]: value });
   };
 
-  // Handle click outside to close the dropdown menu
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsOpen(false); // Close the dropdown if the click is outside
+        setIsOpen(false); 
       }
     };
 
-    // Attach the event listener
+
     document.addEventListener('mousedown', handleClickOutside);
 
-    // Cleanup the event listener on component unmount
+    
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -29,9 +29,9 @@ const DisplayMenu = ({ settings, onSettingsChange }) => {
   return (
     <div className="display-menu" ref={menuRef}>
       <button className="display-button" onClick={() => setIsOpen(!isOpen)}>
-        <img src="/Display.svg" alt="Display Icon" className="icon" /> {/* Display Icon */}
+        <img src="/Display.svg" alt="Display Icon" className="icon" />
         Display
-        <img src="/down.svg" alt="Down Arrow Icon" className="icon" /> {/* Down Arrow Icon */}
+        <img src="/down.svg" alt="Down Arrow Icon" className="icon" /> 
       </button>
 
       {isOpen && (
